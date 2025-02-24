@@ -71,7 +71,7 @@ def calculate_full_exchange(buy_ratio_item1, buy_ratio_item2,
     cut_buy = cut_exceeding_results(total_item1, buy_data)
     cut_sell = cut_exceeding_results(total_item1, sell_data)
 
-    profit = round(sell_val * total_item1 - buy_val * total_item1, 2)
+    profit = round(max((sell_ratio_item1, sell_ratio_item2)) * total_item1 - max((buy_ratio_item1, buy_ratio_item2)) * total_item1, 2)
     return cut_buy, cut_sell, profit
 
 
@@ -80,8 +80,5 @@ def calculate_buy_proportions_only(buy_ratio_item1, buy_ratio_item2, total_item1
     return calculate_possible_pairs_in_ratio(buy_val, total_item1)
 
 if __name__ == "__main__":
-    for i in calculate_full_exchange(1.71, 1, 1.75, 1, 100):
-        print(i)
-
-    for i in calculate_full_exchange(1, 1.71, 1, 1.75, 100):
-        print(i)
+    print(calculate_full_exchange(25, 1, 30, 1, 1000))
+    print(calculate_full_exchange(1, 25, 1, 30, 1000))
