@@ -44,7 +44,7 @@ def calculate_possible_pairs_in_ratio(target_ratio, max_item1):
 def get_item_ratio(v1, v2):
     """Return the value if the other parameter is 1."""
     if v1 == 1:
-        return v2
+        return v1/v2
     elif v2 == 1:
         return v1
     else:
@@ -78,3 +78,10 @@ def calculate_full_exchange(buy_ratio_item1, buy_ratio_item2,
 def calculate_buy_proportions_only(buy_ratio_item1, buy_ratio_item2, total_item1):
     buy_val = get_item_ratio(buy_ratio_item1, buy_ratio_item2)
     return calculate_possible_pairs_in_ratio(buy_val, total_item1)
+
+if __name__ == "__main__":
+    for i in calculate_full_exchange(1.71, 1, 1.75, 1, 100):
+        print(i)
+
+    for i in calculate_full_exchange(1, 1.71, 1, 1.75, 100):
+        print(i)
